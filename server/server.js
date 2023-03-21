@@ -21,6 +21,7 @@ else if (process.env.NODE_ENV === 'production') {
     app.use(express.static('public'))
 }
 
+app.use('/bosses', router)
 app.use('/api', router)
 
 if (process.env.NODE_ENV === 'production') {

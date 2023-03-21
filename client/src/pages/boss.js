@@ -1,13 +1,16 @@
+import BossAPI from '../services/BossAPI'
 import '../css/Boss.css'
 import '@picocss/pico'
 
-document.querySelector('#page-not-found').innerHTML = `
-    <div class="boss-health-location">
-        <h2 id="boss-name"></h2>
-        <p id="boss-health"></p>
-        <p id="boss-location"></p>
-        <p id="boss-description" class="boss-info-description"></p>
-    </div>
+const location = window.location.pathname
+const bossId = location.substring(location.length - 1)
+const bossData = BossAPI.getBoss(bossId)
 
-    <img id="boss-image" src="" />
+document.querySelector('#boss-content').innerHTML = `
+    <h2>${bossData.name}</h2>
+    <p>${bossData.health}</p>
+    <p>${bossData.location}</p>
+    <p>${bossData.description}</p>
+
+    <img src=${boss.image} />
 `
