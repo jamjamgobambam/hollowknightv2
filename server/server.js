@@ -2,7 +2,7 @@ import express from 'express'
 import path from 'path'
 import favicon from 'serve-favicon'
 import dotenv from 'dotenv'
-
+import bossRouter from './routes/boss.js'
 import router from './config/routes.js'
 
 dotenv.config()
@@ -21,7 +21,7 @@ else if (process.env.NODE_ENV === 'production') {
     app.use(express.static('public'))
 }
 
-app.use('/bosses', router)
+app.use('/bosses', bossRouter)
 app.use('/api', router)
 
 if (process.env.NODE_ENV === 'production') {

@@ -3,7 +3,8 @@ import path from 'path'
 
 const bossRouter = express.Router()
 
-bossRouter.get('/bosses/:id', (req, res) => {
+bossRouter.get('/:id', (req, res) => {
+    // console.log('in boss router')
     res.status(200).sendFile(path.resolve('public', 'boss.html'))
 })
 
