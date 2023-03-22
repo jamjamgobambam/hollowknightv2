@@ -4,8 +4,7 @@ import path from 'path'
 const bossRouter = express.Router()
 
 bossRouter.get('/:id', (req, res) => {
-    // console.log('in boss router')
-    res.status(200).sendFile(path.resolve('../', 'public', 'boss.html'))
+    res.status(200).sendFile(path.resolve('public', 'index.html'))
 })
 
 export default bossRouter
