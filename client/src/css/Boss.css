@@ -1,0 +1,52 @@
+.boss-info {
+    margin-bottom: 80px;
+    background-color:rgb(173, 197, 217);
+    border: 2px solid black;
+    border-radius: 3px;
+    padding: 50px;
+    width: 60%;
+}
+
+.boss-info img {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+    object-position: center center;
+    border: 3px solid black;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.boss-health-location {
+    width: 100%;
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 40px;
+}
+
+span {
+    padding-right: 8px;
+}
+
+.info-icon {
+    color: rgb(2, 72, 85);
+}
+
+.boss-info h2 {
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px black;
+    margin-bottom: 20px;
+}
+
+.boss-info p {
+    color: black;
+    margin-bottom: 10px;
+}
+
+.boss-info-description {
+    font-style: italic;
+}

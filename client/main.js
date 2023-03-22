@@ -1,9 +1,10 @@
 import bosses from './src/utilities/bosses'
+import '@picocss/pico'
 import './style.css'
 import './src/css/Navigation.css'
 import './src/css/Boss.css'
+import './src/css/BossCard.css'
 import './src/css/404.css'
-import '@picocss/pico'
 import shade from './src/assets/shade.gif'
 
 document.querySelector('#banner').innerHTML = `
@@ -20,13 +21,13 @@ const showAllBosses = async () => {
   for (const boss of bossData) {
     document.querySelector('#main-content').innerHTML += `
       <article style="background: url(${boss.image}); background-repeat: no-repeat; background-size: cover; background-position: center center">
-        <div className="boss-card-overlay">
-          <div className="boss-brief boss-card-name">
+        <div class="boss-card-overlay">
+          <div class="boss-brief boss-card-name">
             <h3>${boss.name}</h3>
             <hr>
-            <div className="boss-brief boss-card-location">
+            <div class="boss-brief boss-card-location">
               <p>${boss.location}</p>
-              <div className="boss-brief boss-card-link">
+              <div class="boss-brief boss-card-link">
                 <a href="/bosses/${boss.id}" role="button">Read More</a>
               </div>
             </div>
@@ -46,12 +47,16 @@ const showBossById = async () => {
       const bossData = await bosses.fetchBossById(bossId)
 
       document.querySelector('#main-content').innerHTML = `
-          <h2>${bossData.name}</h2>
-          <p>${bossData.health}</p>
-          <p>${bossData.location}</p>
-          <p>${bossData.description}</p>
+        <div class="boss-info">
+          <div class="boss-health-location">
+            <h2>${bossData.name}</h2>
+            <p><strong><span class="fa-solid fa-heart info-icon"></span> Health:</strong>${bossData.health}</p>
+            <p><strong><span class="fa-solid fa-map-location-dot info-icon"></span>${bossData.location}</p>
+            <p class="boss-info-description">${bossData.description}</p>
+          </div>
 
           <img src=${bossData.image} />
+        </div>
       `
     } 
     catch (error) {
@@ -65,11 +70,8 @@ const showBossById = async () => {
 
 const setPageNotFound = () => {
   document.querySelector('#main-content').innerHTML = `
-    <div>
+    <div class="page-not-found">
         <img src=${shade} />
-    </div>
-
-    <div>
         <h2>There's nothing here!</h2>
         <p>The page you're looking for doesn't exist.</p>
     </div>
